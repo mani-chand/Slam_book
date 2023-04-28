@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button, TextField, Typography } from "@mui/material/";
-export default function loginPage() {
+export default function signUpPage() {
   const [user, setUser] = useState({});
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,6 +41,18 @@ export default function loginPage() {
           style={{ marginTop: "5px" }}
           onChange={(e) => {
             setUser({ ...user, password: e.target.value });
+          }}
+        />
+        <TextField
+          fullWidth
+          type="tel"
+          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+          id="filled-basic"
+          label="mobile number"
+          variant="filled"
+          style={{ marginTop: "5px" }}
+          onChange={(e) => {
+            setUser({ ...user, mobile: e.target.value });
           }}
         />
         <Button
