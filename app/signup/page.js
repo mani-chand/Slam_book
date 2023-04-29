@@ -1,10 +1,18 @@
 "use client";
+import axios from "axios";
 import { useState } from "react";
 import { Button, TextField, Typography } from "@mui/material/";
 export default function signUpPage() {
   const [user, setUser] = useState({});
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try{
+      const response = await axios.post("http://localhost:3000/api/",user)
+      console.log(response);
+    }catch(err){
+      console.log("error");
+    }
+    setUser({});
   };
   return (
     <div
@@ -17,7 +25,7 @@ export default function signUpPage() {
     >
       <div style={{ textAlign: "center", margin: "20px" }}>
         <Typography variant="h4" gutterBottom>
-          LOGIN
+          SIGNUP
         </Typography>
       </div>
       <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>

@@ -1,10 +1,22 @@
 "use client";
 import { useState } from "react";
+import axios from "axios";
 import { Button, TextField, Typography } from "@mui/material/";
 export default function loginPage() {
   const [user, setUser] = useState({});
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3000/api/auth", user);
+      if (response) {
+        console.log(response.data);
+      } else {
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    setUser({})
   };
   return (
     <div
