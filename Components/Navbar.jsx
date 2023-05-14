@@ -5,7 +5,7 @@ export function Navbar(props) {
     <Grid container bgcolor="darkgrey" padding={1}>
       <Grid item xs={9}>
         <Typography variant="h4" gutterBottom>
-          Streaming app
+          Slam Book
         </Typography>
       </Grid>
       <Grid item>
